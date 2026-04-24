@@ -69,7 +69,8 @@ def again(): #the menu after you do the quiz
             kobe = input("\nWhat does that mean Kobe Bryant?\n")
             if kobe == "You're welcome":
                 while True:
-                    print("Kanye West")
+                    print("Kanye West\n" * 6767)
+                    quit()
             else:
                 print("You are not Tung Tung Tung Sacool :disapointed_emoji:")
                 time.sleep(2)
