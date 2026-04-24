@@ -1,27 +1,25 @@
     #Melonism faith tester
-ques_ans = 0
+ques_ans = 0 #count how many questions were answered to give a percentage grade
 prayer = "Dear Melons, I shall love you from birth to death, from one corner of the world to the other, I hope you will bring grace to my life, I will not let the pumpkins do anything to my children or my wife, Melon" 
+#This is the prayer the user needs to recite in question 4
 correct = 0
-incorrect = 0
+incorrect = 0 #correct and incorrect counter, duh
 ques_result = []
-c_count = 0
-import random
+c_count = 0 # this is to count how many times the user has selected the option to give the sum of 1+1
+import random #this was just in case
 import time
 print('Warning: This does not actually test your faith.\nIf you are actually faithful to Melonism, seek help.\nMelonism is a joke.\n')
-    #questions I need:
-    #Who created the world?
-    #Who brought evil inside of the walls of the farlands?
 
-def again():
+def again(): #the menu after you do the quiz
     global ques_result
     global c_count
     while True:
         end = input("Would you like to do?\n A. Play again\n B. Show me what questions I got wrong\n C. Give me the sum of 1+1\n D. Stop playing\n")
-        if end.lower() == 'a':
+        if end.lower() == 'a': #play again
             print("Great, let's play!\n")
             break
         
-        elif end.lower() == 'b':
+        elif end.lower() == 'b': #results
             print('\nOkay! Here are the results:\n')
             time.sleep(3)
             num = 1
@@ -46,7 +44,7 @@ def again():
                 print("Holy tuff boi. Like 67 Tung Tung Tung Sahur kinda tuff. Skibidi.\n")
                 time.sleep(2)
                     
-        elif end.lower() == 'c':
+        elif end.lower() == 'c': #1+1=2
             if c_count < 12:
                 print ('\n2\n')
                 time.sleep(2)
@@ -62,13 +60,13 @@ def again():
                 time.sleep(2)
                 quit("too many 2")
                 
-        elif end.lower() == 'd':
+        elif end.lower() == 'd': #quit
             print("Okay then, I see how it is\n")
             time.sleep(2)
             quit()
             
         elif end == "Are you a different animal and the same beast?":
-            kobe = input("\nWhat the hell does that mean Kobe Bryant?\n")
+            kobe = input("\nWhat does that mean Kobe Bryant?\n")
             if kobe == "You're welcome":
                 while True:
                     print("Kanye West")
@@ -80,8 +78,8 @@ def again():
             print("\nThat's not a real answer.\n")
             time.sleep(2)
 
-while True:
-    def ques1():
+while True: # the game logic that I managed to make work on a single while loop. Probably not the best thing
+    def ques1(): #defines questions
         global ques_ans
         ques_ans += 1
         while True:
@@ -97,10 +95,10 @@ while True:
                 incorrect += 1
                 return "wrong"
             
-            else:
+            else: #choosing an answer thats not there won't count it wrong
                 print("\nThat's not an option, please select a or b\n")
                 
-    def ques2():
+    def ques2(): #ditto
         global ques_ans
         ques_ans += 1
         while True:
@@ -122,7 +120,7 @@ while True:
             else:
                 print("\nThat's not an option, please select a or b\n")
                 
-    def ques3():
+    def ques3(): #ditto
         while True:
             global ques_ans
             ques_ans += 1
@@ -153,7 +151,7 @@ while True:
             else:
                 print("\nThat's not an option, please select a, b, c, or d\n")        
     
-    def ques4():
+    def ques4(): # open answe question, so 1 typo is wrong
         global ques_ans
         ques_ans += 1
         ans = input ("\nRecite this prayer:\nDear Melons, I shall love you from birth to death,\nfrom one corner of the world to the other,\nI hope you will bring grace to my life,\nI will not let the pumpkins\ndo anything to my children or my wife,\nMelon\n")
@@ -168,7 +166,7 @@ while True:
             return "right"
             time.sleep(2)
             
-        elif ans == "skibidi toilet":
+        elif ans == "skibidi toilet": 
             correct += 78626536578947656787654345678746567465356273643567387645367654637
             return "Ultra Skibidi Deluxe"
             
@@ -189,7 +187,7 @@ while True:
             return "wrong"
             incorrect += 1
             time.sleep(2)
-    def ques5():
+    def ques5(): # ditto
         global ques_ans
         global incorrect
         global correct
@@ -216,7 +214,7 @@ while True:
             else:
                 print("\nThat is not an option, please select a, b, c, or d")
             
-    def ques6():
+    def ques6():# ditto
         global correct
         global incorrect
         global ques_ans
@@ -245,17 +243,17 @@ while True:
                 
                 
                 
-    ques_result.append(ques1())
+    ques_result.append(ques1()) #actually calls up the questions and uses the results for option B in the post-quiz menu
     ques_result.append(ques2())
     ques_result.append(ques3())
     ques_result.append(ques4())
     ques_result.append(ques5())
     ques_result.append(ques6())
-    perc = int((correct / ques_ans) * 100)
+    perc = int((correct / ques_ans) * 100) # gives percentage grade
     time.sleep(2)
     print(f"\nYou are {perc}% faithful\n")
     time.sleep(2)
-    if perc < 50:
+    if perc < 50: #messages depending on grade
         print("You are genuinely such a failure\n")
         time.sleep(2)
     elif perc < 70:
@@ -271,10 +269,10 @@ while True:
         print("You are a true child of Melonism")
         time.sleep(2)
     else:
-        print('CITY BOIIIIIIIIIIIIIII SKIBIDI TUFF TUNG TUNG TUNG')
+        print('CITY BOIIIIIIIIIIIIIII SKIBIDI TUFF TUNG TUNG TUNG') #yes
         time.sleep(2)
-    correct = 0
+    correct = 0 #resets these variables so you can play again
     incorrect = 0
     ques_ans = 0
-    again()
-    ques_result = []
+    again() #calls up the post-quiz menu
+    ques_result = []#comes after the post_quiz menu in order for option B to work
